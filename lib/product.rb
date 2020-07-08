@@ -4,8 +4,8 @@ class Product
   def initialize(category, name, unit_price, quantity)
     @category = category
     @name = name
-    @unit_price = unit_price.to_f.round(2)
-    @quantity = quantity.to_s
+    @unit_price = unit_price
+    @quantity = quantity
   end
 
   def total_price
@@ -13,8 +13,10 @@ class Product
   end
 
   def is_hoarded?
+    @quantity.to_i == 0
   end
 
   def hoard
+    @quantity = 0
   end
 end
